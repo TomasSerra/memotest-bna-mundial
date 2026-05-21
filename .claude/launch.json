@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "memotest-dev",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": ["-c", "PORT=3456 BROWSER=none npm start"],
+      "port": 3456
+    }
+  ]
+}
