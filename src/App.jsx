@@ -18,7 +18,7 @@ function App() {
   const [time, setTime] = useState(55);
 
   const [points, setPoints] = useState(0);
-  const size = 12;
+  const size = 20;
 
   function handlePage(p) {
     setPage(p);

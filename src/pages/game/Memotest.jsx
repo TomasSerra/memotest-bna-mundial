@@ -23,20 +23,19 @@ export default function Memotest({
   const intervalRef = useRef(null);
 
   function randomize(cant) {
-    let array = [];
-    let randomImgs = [];
-    let randomNums = [];
-
-    while (randomImgs.length < size / 2) {
-      const num = Math.floor(Math.random() * images.length);
-      if (!randomNums.includes(num)) {
-        randomImgs.push(images[num]);
-        randomNums.push(num);
+    const needed = size / 2;
+    const randomImgs = [];
+    let pool = [];
+    while (randomImgs.length < needed) {
+      if (pool.length === 0) {
+        pool = [...images].sort(() => Math.random() - 0.5);
       }
+      randomImgs.push(pool.pop());
     }
 
     setImgs(randomImgs);
 
+    const array = [];
     while (array.length < cant) {
       const num = Math.floor(Math.random() * cant);
       if (!array.includes(num)) {
@@ -113,8 +112,8 @@ export default function Memotest({
                   : 70
             }
             space={2}
-            columns={3}
-            rows={4}
+            columns={4}
+            rows={5}
             order={order}
             imgs={imgs}
             back={Back}

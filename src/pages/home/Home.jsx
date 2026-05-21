@@ -15,7 +15,7 @@ function Home({goToNextPage}) {
       {showStats && <StatsViewer whenClose={()=>{setShowStats(false)}} storageKey={'stats-memotest-bna'}/>}
       <div className="center">
         <h1>¡Te damos la <br/>bienvenida!</h1>
-        <p>Encontrá los 6 pares <br/>de productos.</p>
+        <p>Encontrá los 10 pares <br/>de productos.</p>
         <button className="play-button" onClick={goToNextPage} aria-label="Vamos a jugar" />
       </div>
       <div className="footer">

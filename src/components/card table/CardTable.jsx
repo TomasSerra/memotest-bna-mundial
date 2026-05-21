@@ -5,9 +5,11 @@ import CardItem from '../card item/CardItem';
 
 export default function CardTable(props) {
     const [ratio, setRatio] = useState(window.innerWidth/window.innerHeight);
+    const aspect = props.columns / props.rows;
     const [styles, setStyles] = useState({
         display : 'grid',
-        width : ratio>=1 ? props.size + 'vh' : props.size + 'vw',
+        aspectRatio : `${props.columns} / ${props.rows}`,
+        width : `min(${props.size}vw, ${props.size}vh * ${aspect})`,
         gridTemplateColumns : 'repeat(' + props.columns + ', 1fr)',
         gridTemplateRows : 'repeat(' + props.rows + ', 1fr)',
         gridGap : ratio>=1 ? props.space + 'vh' : props.space + 'vw'
