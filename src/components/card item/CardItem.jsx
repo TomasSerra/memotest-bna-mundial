@@ -23,8 +23,8 @@ export default function CardItem({
     background: !view
       ? "url(" +
         backImg +
-        ") no-repeat center center / 35%, radial-gradient(circle at center, #0B1F3F 0 0%, #0B1F3F 33%)"
-      : "#0B1F3F",
+        ") no-repeat center center / 60%, radial-gradient(circle at center, #005F86 0 0%, #005F86 33%)"
+      : "#005F86",
   };
 
   function showCard(e) {
@@ -87,15 +87,19 @@ export default function CardItem({
       <div
         style={
           view
-            ? {
-                display: "block",
-                rotate: "y 180deg",
-                backgroundImage: "url(" + frontImg + ")",
-              }
+            ? { display: "flex", rotate: "y 180deg" }
             : { display: "none", rotate: "y 0deg" }
         }
         className="image"
-      />
+      >
+        <img
+          className="flag"
+          src={frontImg.src}
+          alt={frontImg.name}
+          style={{ objectPosition: frontImg.align }}
+        />
+        <span className="country-name">{frontImg.name}</span>
+      </div>
     </button>
   );
 }

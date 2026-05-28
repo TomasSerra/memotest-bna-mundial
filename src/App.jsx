@@ -4,20 +4,13 @@ import Home from "./pages/home/Home";
 import Memotest from "./pages/game/Memotest";
 import End from "./pages/end/End";
 
-import F1 from "./img/fichas/1.png";
-import F2 from "./img/fichas/2.png";
-import F3 from "./img/fichas/3.png";
-import F4 from "./img/fichas/4.png";
-import F5 from "./img/fichas/5.png";
-import F6 from "./img/fichas/6.png";
-import F7 from "./img/fichas/7.png";
-import F8 from "./img/fichas/8.png";
+import FLAGS from "./flags";
 
 function App() {
-  const [page, setPage] = useState(0);
-  const [time, setTime] = useState(55);
+  const [page, setPage] = useState(2);
+  const [time, setTime] = useState(60);
 
-  const [points, setPoints] = useState(0);
+  const [points, setPoints] = useState(20);
   const size = 20;
 
   function handlePage(p) {
@@ -57,7 +50,7 @@ function App() {
           handleGlobalPoints={handlePoints}
           size={size}
           time={time}
-          images={[F1, F2, F3, F4, F5, F6, F7, F8]}
+          images={FLAGS}
         />
       )}
       {page === 2 && (

@@ -1,50 +1,56 @@
 .home-page {
-  width: 100%;
+  width: 100vw;
   height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background-image: url("../../img/background.png");
+  background-image: url("../../img/home/bg-home.png");
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
 
   .center {
     flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     flex-direction: column;
     width: 100%;
+    padding-bottom: 8dvh;
 
     h1 {
       color: white;
-      font-size: 11vw;
+      font-family: "Kievit Black", sans-serif;
+      font-size: 10vw;
       margin: 0;
-      font-weight: 800;
+      font-weight: 900;
       text-align: center;
       line-height: 1.1;
     }
 
     p {
-      width: 80%;
+      width: 95%;
       color: white;
-      font-size: 5.5vw;
+      font-family: "Kievit Medium", sans-serif;
+      font-size: 6vw;
       text-align: center;
-      font-weight: 700;
-      margin-top: 4dvh;
+      font-weight: 500;
+      margin-top: 2.5dvh;
+      margin-bottom: 0;
     }
 
     .play-button {
-      margin-top: 0;
-      width: 45vw;
-      height: 33vw;
-      border: none;
-      background: url("../../img/home/play-button.svg") no-repeat center center;
-      background-size: contain;
+      margin-top: 8dvh;
+      padding: 2.4vw 8vw;
+      border: 2px solid white;
+      background: transparent;
+      color: white;
+      font-size: 6vw;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      border-radius: 999px;
       cursor: pointer;
-      padding: 0;
-      margin-bottom: 5dvh;
 
       &:focus {
         outline: none;
@@ -61,21 +67,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 10dvh;
+    padding-bottom: 5dvh;
     img {
-      width: 30vw;
+      width: 26vw;
     }
   }
 
   @media (min-width: 1000px) and (orientation: portrait) and (max-aspect-ratio: 65/100) {
     .center {
-      h1 { font-size: 13.5vw; }
-      p  { font-size: 6.8vw; }
+      h1 {
+        font-size: 9vw;
+      }
+      p {
+        font-size: 5.5vw;
+      }
       .play-button {
-        width: 56vw;
-        height: 41vw;
+        font-size: 6vw;
+        padding: 3vw 8vw;
       }
     }
-    .footer img { width: 37vw; }
+    .footer img {
+      width: 30vw;
+    }
   }
 }

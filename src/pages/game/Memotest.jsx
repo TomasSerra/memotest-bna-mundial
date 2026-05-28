@@ -4,7 +4,6 @@ import "./Memotest.scss";
 
 import Logo from "../../img/logo.png";
 import Back from "../../img/icono.png";
-import Clock from "../../img/game/clock.svg";
 import CardTable from "../../components/card table/CardTable";
 import TimeBar from "../../components/time bar/TimeBar";
 
@@ -24,14 +23,24 @@ export default function Memotest({
 
   function randomize(cant) {
     const needed = size / 2;
+    const argentina = images.find((img) =>
+      /argentina/i.test(img.name) || /argentina/i.test(img.src),
+    );
+    const rest = images.filter((img) => img !== argentina);
+
     const randomImgs = [];
+    if (argentina) {
+      randomImgs.push(argentina);
+    }
     let pool = [];
     while (randomImgs.length < needed) {
       if (pool.length === 0) {
-        pool = [...images].sort(() => Math.random() - 0.5);
+        pool = [...rest].sort(() => Math.random() - 0.5);
       }
       randomImgs.push(pool.pop());
     }
+    // Shuffle so Argentina isn't always first
+    randomImgs.sort(() => Math.random() - 0.5);
 
     setImgs(randomImgs);
 
@@ -80,7 +89,7 @@ export default function Memotest({
   function preloadImages(imageArray) {
     imageArray.forEach((imageSrc) => {
       const img = new Image();
-      img.src = imageSrc;
+      img.src = imageSrc.src;
     });
   }
 
@@ -90,15 +99,14 @@ export default function Memotest({
         <TimeBar
           maxTime={time}
           actualTime={timer}
-          colors={{ barColor: "#ffffff", backgroundColor: "#04405B" }}
+          colors={{ barColor: "#8F8ABD", backgroundColor: "#ffffffb8" }}
         />
       </div>
       <div className="title-row">
-        <img src={Clock} className="clock-icon" />
         <h2>
-          Apurate a encontrarlos
+          ¡Apurate a encontrarlas,
           <br />
-          ¡El tiempo corre!
+          el tiempo corre!
         </h2>
       </div>
       {order.length !== 0 && (
@@ -107,7 +115,8 @@ export default function Memotest({
             size={
               window.innerWidth <= 700
                 ? 80
-                : (window.innerWidth >= 1000 && window.innerHeight > window.innerWidth)
+                : window.innerWidth >= 1000 &&
+                    window.innerHeight > window.innerWidth
                   ? 87
                   : 70
             }

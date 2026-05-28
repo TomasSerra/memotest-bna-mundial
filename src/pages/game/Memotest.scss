@@ -1,43 +1,39 @@
 .memotest-page {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 5dvh;
   align-items: center;
   flex-direction: column;
   width: 100%;
   overflow: hidden;
-  background-image: url("../../img/background.png");
+  background-image: url("../../img/game/bg-game.png");
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
   height: 100dvh;
 
   .timer-top {
-    width: 100vw;
-    height: 2.5vw;
-    min-height: 14px;
+    width: 86vw;
+    height: 5vw;
+    min-height: 18px;
+    margin-top: 4dvh;
   }
 
   .title-row {
-    width: 80vw;
+    width: 86vw;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    margin-top: 0;
-    gap: 3vw;
-
-    .clock-icon {
-      width: 16vw;
-      height: auto;
-      flex-shrink: 0;
-    }
 
     h2 {
       color: white;
-      font-size: 5vw;
+      font-size: 7vw;
       margin: 0;
-      font-weight: bold;
-      line-height: 1.2;
-      text-align: left;
+      font-weight: 800;
+      line-height: 1.15;
+      text-align: center;
+      font-family: "Kievit Black", sans-serif;
     }
   }
 
@@ -45,7 +41,6 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 0;
   }
 
   .footer {
@@ -53,7 +48,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 3dvh;
+    padding-bottom: 4dvh;
 
     img {
       width: 30vw;
@@ -61,13 +56,19 @@
   }
 
   @media (min-width: 1000px) and (orientation: portrait) and (max-aspect-ratio: 65/100) {
-    .timer-top { height: 3vw; }
-    .title-row {
-      width: 88vw;
-      gap: 3.7vw;
-      .clock-icon { width: 20vw; }
-      h2 { font-size: 6.2vw; }
+    justify-content: space-between;
+    gap: 0;
+
+    .timer-top {
+      height: 7vw;
     }
-    .footer img { width: 37vw; }
+    .title-row {
+      h2 {
+        font-size: 6.5vw;
+      }
+    }
+    .footer img {
+      width: 37vw;
+    }
   }
 }

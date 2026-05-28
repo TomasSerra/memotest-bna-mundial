@@ -6,16 +6,6 @@
   box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.103);
   border: none;
 
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 8px;
-    border: 1.5px solid rgba(255, 255, 255, 0.85);
-    border-radius: 2vw;
-    pointer-events: none;
-    z-index: 3;
-  }
-
   &:focus,
   &:focus-visible {
     outline: none;
@@ -34,15 +24,43 @@
     margin: auto;
     transform: rotateY(180deg);
     border-radius: 2.8vw;
-    background-size: cover;
-    background-position: center;
+    overflow: hidden;
+    background: #ffffff;
+    flex-direction: column;
+
+    .flag {
+      width: 100%;
+      flex: 0 0 72%;
+      min-height: 0;
+      object-fit: cover;
+      display: block;
+      transform: scaleX(-1);
+    }
+
+    .country-name {
+      transform: scaleX(-1);
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      padding: 0 4%;
+      color: #0b1f3f;
+      font-weight: 600;
+      font-size: clamp(8px, 2.2vw, 22px);
+      line-height: 1.1;
+      box-sizing: border-box;
+      overflow: hidden;
+      word-break: break-word;
+      hyphens: auto;
+    }
   }
 }
 
 @media (min-width: 1000px) and (orientation: portrait) and (max-aspect-ratio: 65/100) {
   .piece {
     border-radius: 3.7vw;
-    &::before { border-radius: 2.5vw; }
     .image { border-radius: 3.5vw; }
   }
 }

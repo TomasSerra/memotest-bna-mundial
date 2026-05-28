@@ -5,8 +5,12 @@
   justify-content: left;
   align-items: center;
   overflow: hidden;
+  border-radius: 1000px;
+  border: solid 2px;
+  border-color: white;
 
   .progress-bar {
     height: 100%;
+    border-radius: 1000px;
   }
 }

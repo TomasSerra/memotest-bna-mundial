@@ -10,6 +10,20 @@
   src: url('./assets/fonts/Kievit Bold.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Kievit Black';
+  src: url('./assets/fonts/Kievit Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kievit Medium';
+  src: url('./assets/fonts/Kievit Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
 body {
   margin: 0;
   font-family: 'Kievit', sans-serif;

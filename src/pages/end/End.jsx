@@ -4,8 +4,8 @@ import Confetti from "react-confetti";
 import { useWindowSize } from "@react-hook/window-size";
 
 import Logo from "../../img/logo.png";
-import ClockFinal from "../../img/end/clock-final.svg";
-import TresDeTres from "../../img/end/3-de-3-bien.svg";
+import LoseImage from "../../img/end/lose-image.png";
+import WinImage from "../../img/end/win-image.png";
 
 function End({ goToNextPage, hasWin }) {
   const [width, height] = useWindowSize();
@@ -14,7 +14,7 @@ function End({ goToNextPage, hasWin }) {
     setDataToLocalStorage();
     setTimeout(() => {
       goToNextPage();
-    }, 6000);
+    }, 100000);
   }, []);
 
   const setDataToLocalStorage = () => {
@@ -40,51 +40,40 @@ function End({ goToNextPage, hasWin }) {
         <Confetti
           width={width}
           height={height}
-          colors={[
-            "#8F8ABD",
-            "#F06C29",
-            "#007B5F",
-            "#507385",
-            "#D4AC87",
-            "#65C9D8",
-          ]}
+          colors={["#22c4e4", "#ffffff", "#2080bf", "#e3eef3"]}
           recycle={true}
-          numberOfPieces={500}
-          gravity={0.05}
+          numberOfPieces={width <= 700 ? 500 : 800}
+          gravity={width <= 700 ? 0.03 : 0.05}
         />
       )}
       <div className="center">
         {hasWin ? (
           <>
-            <h1>¡Excelente!</h1>
+            <h1>¡EXCELENTE!</h1>
+            <div className="final-img-container">
+              <img src={WinImage} className="final-img zoom-in" alt="" />
+            </div>
             <p>
               Encontraste todos
               <br />
-              los pares de productos.
+              los pares de banderas
             </p>
-            <div className="final-img-container">
-              <img src={TresDeTres} className="final-img-win zoom-in" alt="" />
-            </div>
           </>
         ) : (
           <>
             <h2>
-              ¡Se te acabó
+              ¡SE TE ACABÓ
               <br />
-              el tiempo!
+              EL TIEMPO!
             </h2>
+            <div className="final-img-container">
+              <img src={LoseImage} className="final-img zoom-in" alt="" />
+            </div>
             <p>
               Muchas gracias
               <br />
-              por participar.
+              por participar
             </p>
-            <div className="final-img-container">
-              <img
-                src={ClockFinal}
-                className="final-img-clock zoom-in"
-                alt=""
-              />
-            </div>
           </>
         )}
       </div>
