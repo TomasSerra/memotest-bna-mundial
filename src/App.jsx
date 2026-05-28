@@ -7,10 +7,10 @@ import End from "./pages/end/End";
 import FLAGS from "./flags";
 
 function App() {
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(0);
   const [time, setTime] = useState(60);
 
-  const [points, setPoints] = useState(20);
+  const [points, setPoints] = useState(0);
   const size = 20;
 
   function handlePage(p) {

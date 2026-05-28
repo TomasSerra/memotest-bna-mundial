@@ -14,7 +14,7 @@ function End({ goToNextPage, hasWin }) {
     setDataToLocalStorage();
     setTimeout(() => {
       goToNextPage();
-    }, 100000);
+    }, 6000);
   }, []);
 
   const setDataToLocalStorage = () => {
