@@ -3,12 +3,13 @@ import { useEffect, useState } from "react";
 import Home from "./pages/home/Home";
 import Memotest from "./pages/game/Memotest";
 import End from "./pages/end/End";
+import IdleVideoOverlay from "./components/IdleVideoOverlay/IdleVideoOverlay";
 
 import FLAGS from "./flags";
 
 function App() {
   const [page, setPage] = useState(0);
-  const [time, setTime] = useState(60);
+  const [time, setTime] = useState(70);
 
   const [points, setPoints] = useState(0);
   const size = 20;
@@ -61,6 +62,7 @@ function App() {
           hasWin={points === size}
         />
       )}
+      <IdleVideoOverlay />
     </div>
   );
 }
